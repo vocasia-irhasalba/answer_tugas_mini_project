@@ -2,6 +2,7 @@ const express = require("express")
 const exampleController = require("../controllers/ExampleController")
 const menuController = require("../controllers/MenuController")
 const customerController = require("../controllers/CustomerController")
+const categoriesController = require("../controllers/categoriesController")
 const router = express.Router()
 
 // menu routers
@@ -17,4 +18,11 @@ router.get('/customer/:id',customerController.getById)
 router.post('/customer/create',customerController.create)
 router.put('/customer/update/:id',customerController.update)
 router.delete('/customer/delete/:id',customerController.delete)
+
+// categories routers
+router.get('/categories',categoriesController.getAll)
+router.get('/category/:id',categoriesController.getById)
+router.post('/category/create',categoriesController.create)
+router.put('/category/update/:id',categoriesController.update)
+router.delete('/category/delete/:id',categoriesController.delete)
 module.exports = router
