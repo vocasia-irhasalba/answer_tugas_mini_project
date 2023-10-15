@@ -51,5 +51,14 @@ menuModel.delete = (id,cb) => {
         }
     })
 }
+menuModel.findByName = (menuName,cb) => {
+    return db.all(`SELECT * FROM menu WHERE item IN ('${menuName}')`,(err,rows) => {
+        if(err){
+            cb(err,null)
+        }else {
+            cb(null,rows)
+        }
+    })
+}
 
 module.exports = menuModel
